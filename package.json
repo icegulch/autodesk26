@@ -1,5 +1,5 @@
 {
-  "name": "Project",
+  "name": "portfilio",
   "version": "1.0.0",
   "description": "",
   "type": "module",
@@ -12,7 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "dotenv": "^17.3.1",
     "html-minifier-terser": "^7.2.0"
   }
 }

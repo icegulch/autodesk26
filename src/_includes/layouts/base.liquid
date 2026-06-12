@@ -3,35 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   {%- capture page_title -%}
     {%- assign current_title = seo_title | default: title -%}
     {% if current_title %}{{ current_title }} | {% endif %}{{ site.title }}
   {%- endcapture -%}
   <title>{{ page_title }}</title>
-  
+
   <meta name="description" content="{{ seo_description | default: site.seo_description }}">
   <meta name="generator" content="{{ eleventy.generator }}">
 
-  <meta property="og:title" content="{{ title }}">
-  <meta property="og:description" content="{{ description }}">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ seo_description | default: site.seo_description }}">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ page.url }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+
+  <!-- canonical -->
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+  <!-- favicon -->
+  <link rel="icon" href="/favicon.ico">
 
   <link rel="stylesheet" href="/css/critical.css">
+  <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
 
-  {% if pageStyles %}
-    {% for style in pageStyles %}
-      <link rel="stylesheet" href="/css/{{ style }}.css" media="print" onload="this.media='all'">
-    {% endfor %}
-  {% endif %}
 </head>
-<body>
-  {% include "partials/svg-sprite.liquid" %}
+<body class="{{ body_class }}">
+
+  <header>
+    <div class="container">
+      <h1 class="league-gothic">
+        <a href="/">Steve Bailey</a>
+      </h1>
+      <p>{{ site.seo_description }}</p>
+    </div>
+  </header>
 
   <main>
-    {{ content }}
+    <div class="container">
+      {{ content }}
+    </div>
   </main>
+
+  <footer>
+    <div class="container">
+      <p>Hand-coded in 11ty <span>&</span> deployed via Netlify</p>
+      <p>Light code and content review by Claude</p>
+    </div>
+  </footer>
 
 </body>
 </html>

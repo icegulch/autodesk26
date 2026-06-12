@@ -1,8 +1,6 @@
-import "dotenv/config"; // Loads .env variables immediately
 import { minify } from "html-minifier-terser";
 
 export default function (eleventyConfig) {
-
   eleventyConfig.setInputDirectory("src");
   eleventyConfig.setOutputDirectory("_site");
   eleventyConfig.addPassthroughCopy({ "static": "/" });
@@ -24,5 +22,4 @@ export default function (eleventyConfig) {
     }
     return content;
   });
-
 };

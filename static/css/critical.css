@@ -20,13 +20,16 @@ input, button, textarea, select {
   font: inherit;
 }
 
-/* 5. Improve text rendering */
 body {
-  font: 1rem/1.5 system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantall, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-feature-settings: "kern", "liga", "clig", "calt"; /* Enable high-end OpenType features */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  font: 300 1.125rem/1.6 Georgia, 'Times New Roman', serif;
+  font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+  background-color: #e2e8f0;
 }
 
 /* 6. Remove list styles where we usually don't want them */
@@ -43,5 +46,99 @@ ul[role='list'], ol[role='list'] {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+h1 {
+  line-height: 1;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.container {
+  max-width: min(75ch, 90vw);
+  margin-inline: auto;
+}
+
+.league-gothic {
+  font-family: "League Gothic", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+header {
+  padding-block: 10px;
+  background-color: black;
+  .container {
+    display: grid;
+    gap: 0;
+    @media screen and (min-width: 576px) {
+      grid-template-columns: auto auto;
+      justify-content: center;
+      align-items: center;
+      gap: 0 20px;
+    }
+    h1 {
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+    p {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #ccc;
+    }
+  }
+}
+
+.worklist {
+  margin-top: 20px;
+  display: grid;
+  gap: 20px 0;
+  li {
+    transform: scale(1);
+    transition: transform 0.2s ease;
+    &:hover, &:focus {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    a {
+      display: grid;
+      gap: 1rem;
+      background: white;
+      border-radius: 0.25rem;
+      padding: 3rem;
+      text-decoration: none;
+      @media screen and (min-width: 768px) {
+        grid-template-columns: 200px 1fr;
+        align-items: center;
+        gap: 3rem;
+      }
+      h2 {
+        margin-bottom: 0.5rem;
+        color: black;
+      }
+      p {
+        color: #383838;
+        font-size: 0.9rem
+      }
+    }
+  }
+}
+
+footer {
+  padding: 1rem 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  span {
+    font-family: baskerville;
+    font-style: italic;
   }
 }

@@ -3,15 +3,16 @@ permalink: /
 ---
 
 <ul role="list" class="worklist">
-{% for item in collections.work %}
-  <li>
-    <a href="{{ item.url }}">
-      {% render "svg/{{ item.page.fileSlug }}.svg" %}
-      <div>
-        <h2 class="league-gothic">{{ item.data.title }}</h2>
-        <p>{{ item.data.teaser }}</p>
-      </div>
-    </a>
-  </li>
-{% endfor %}
+  {% assign sortedWork = collections.work | sort: "data.order" %}
+  {% for item in collections.work %}
+    <li>
+      <a href="{{ item.url }}">
+        {% render "svg/{{ item.page.fileSlug }}.svg" %}
+        <div>
+          <h2 class="league-gothic">{{ item.data.title }}</h2>
+          <p>{{ item.data.teaser }}</p>
+        </div>
+      </a>
+    </li>
+  {% endfor %}
 </ul>

@@ -32,6 +32,10 @@ body {
   background-color: #e2e8f0;
 }
 
+main {
+  padding-block: 40px 20px;
+}
+
 /* 6. Remove list styles where we usually don't want them */
 ul[role='list'], ol[role='list'] {
   list-style: none;
@@ -72,6 +76,12 @@ h2 {
     "wdth" 100;
 }
 
+.content-section {
+  background: white;
+  border-radius: 0.25rem;
+  padding: 3rem;
+}
+
 header {
   padding-block: 10px;
   background-color: black;
@@ -99,7 +109,7 @@ header {
 }
 
 .worklist {
-  margin-top: 20px;
+  margin: 0;
   display: grid;
   gap: 20px 0;
   li {
@@ -112,9 +122,6 @@ header {
     a {
       display: grid;
       gap: 1rem;
-      background: white;
-      border-radius: 0.25rem;
-      padding: 3rem;
       text-decoration: none;
       @media screen and (min-width: 768px) {
         grid-template-columns: 200px 1fr;

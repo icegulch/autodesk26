@@ -1,4 +1,5 @@
 {
+  "layout": "work.liquid",
   "permalink": "/{{ page.fileSlug }}/",
   "tags": "work"
 }

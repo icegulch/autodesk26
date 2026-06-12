@@ -6,7 +6,7 @@ permalink: /
   {% assign sortedWork = collections.work | sort: "data.order" %}
   {% for item in collections.work %}
     <li>
-      <a href="{{ item.url }}">
+      <a href="{{ item.url }}" class="content-section">
         {% render "svg/{{ item.page.fileSlug }}.svg" %}
         <div>
           <h2 class="league-gothic">{{ item.data.title }}</h2>

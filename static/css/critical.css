@@ -32,6 +32,32 @@ body {
   background-color: #e2e8f0;
 }
 
+header {
+  padding-block: 10px;
+  background-color: black;
+  .container {
+    display: grid;
+    gap: 0;
+    @media screen and (min-width: 576px) {
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0 5px;
+    }
+    h1 {
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+    p {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #ccc;
+    }
+  }
+}
+
 main {
   padding-block: 40px 20px;
 }
@@ -80,32 +106,6 @@ h2 {
   background: white;
   border-radius: 0.25rem;
   padding: 3rem;
-}
-
-header {
-  padding-block: 10px;
-  background-color: black;
-  .container {
-    display: grid;
-    gap: 0;
-    @media screen and (min-width: 576px) {
-      grid-template-columns: auto auto;
-      justify-content: center;
-      align-items: center;
-      gap: 0 20px;
-    }
-    h1 {
-      a {
-        color: white;
-        text-decoration: none;
-      }
-    }
-    p {
-      font-size: 0.9rem;
-      font-style: italic;
-      color: #ccc;
-    }
-  }
 }
 
 .worklist {
